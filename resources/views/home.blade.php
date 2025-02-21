@@ -4,9 +4,8 @@
 
 @section('content')
 
-<!-- ✅ هيرو احترافي -->
 <section class="relative bg-cover bg-center h-[700px] flex items-center justify-center text-white text-center"
-    style="background-image: url('{{ asset('images/stadium-bg.jpg') }}');">
+    style="background-image: url('{{ asset('stadium.webp') }}');">
     <div class="bg-black/70 w-full h-full absolute top-0 left-0"></div>
 
     <div class="relative">
