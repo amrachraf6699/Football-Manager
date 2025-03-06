@@ -49,9 +49,16 @@ $setting = \App\Models\Setting::first();
             </div>
         </div>
         
+        @auth
+        <div class="hidden md:flex space-x-4 rtl:space-x-reverse">
+            <a href="{{ route('dashboard.home') }}" class="border border-[#FFD700] py-2 px-4 rounded-lg hover:bg-[#FFD700] hover:text-black transition"><i class='bx bx-user'></i> لوحة التحكم</a>
+        </div>
+        @else
         <div class="hidden md:flex space-x-4 rtl:space-x-reverse">
             <a href="{{ route('login') }}" class="border border-[#FFD700] py-2 px-4 rounded-lg hover:bg-[#FFD700] hover:text-black transition">تسجيل الدخول</a>
         </div>
+        @endauth
+
         
         <button id="menu-btn" class="md:hidden text-white text-3xl block">☰</button>
         
@@ -148,6 +155,12 @@ $setting = \App\Models\Setting::first();
                 <p class="text-gray-700 flex items-center justify-center opacity-0 translate-y-2 transition-all duration-500 delay-400">
                     <span class="ml-2"><a href="mailto:{{ $setting->email }}" class="underline">{{ $setting->email }}</a> | <a href="tel:{{ $setting->phone }}" class="underline">{{ $setting->phone }}</a></span>
                 </p>
+            </div>
+            <div class="flex justify-center space-x-4 rtl:space-x-reverse mt-6">
+                <a target="_blank" href="{{ $setting->facebook }}" class="text-[#1B263B] text-3xl hover:text-[#FFD700] transition duration-300"><i class='bx bxl-facebook'></i></a>
+                <a target="_blank" href="{{ $setting->twitter }}" class="text-[#1B263B] text-3xl hover:text-[#FFD700] transition duration-300"><i class='bx bxl-twitter'></i></a>
+                <a target="_blank" href="{{ $setting->instagram }}" class="text-[#1B263B] text-3xl hover:text-[#FFD700] transition duration-300"><i class='bx bxl-instagram'></i></a>
+                <a target="_blank" href="{{ $setting->youtube }}" class="text-[#1B263B] text-3xl hover:text-[#FFD700] transition duration-300"><i class='bx bxl-youtube'></i></a>
             </div>
         </div>
     </div>

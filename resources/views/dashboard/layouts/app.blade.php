@@ -53,7 +53,7 @@
     <link rel="stylesheet" href=" {{ asset('dashboard_assets') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Page CSS -->
-
+    @stack('styles')
     <!-- Helpers -->
     <script src=" {{ asset('dashboard_assets') }}/assets/vendor/js/helpers.js"></script>
 
@@ -107,34 +107,11 @@
                 </a>
             </li>
 
-            <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">المركز الإعلامي</span>
-            </li>
-
-            <li class="menu-item {{ request()->routeIs('dashboard.pages.*') ? 'active' : '' }}">
-              <a href="{{ request()->routeIs('dashboard.pages.*') ? 'javascript:void(0)' : route('dashboard.pages.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-file-blank"></i>
-                <div data-i18n="Analytics">صفحات تعرف أكثر</div>
+            <li class="menu-item {{ request()->routeIs('dashboard.players.*') ? 'active' : '' }}">
+              <a href="{{ request()->routeIs('dashboard.players.*') ? 'javascript:void(0)' : route('dashboard.players.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-football"></i>
+                <div data-i18n="Analytics">اللاعبين</div>
               </a>
-            </li>
-
-            <li class="menu-item {{ request()->routeIs('dashboard.blogs.*') ? 'open' : '' }}">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxl-blogger"></i>
-                <div data-i18n="Account Settings">المقالات</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item {{ request()->routeIs('dashboard.blogs.index') ? 'active' : '' }}">
-                  <a href="{{ request()->routeIs('dashboard.blogs.index') ? 'javascript:void(0)' : route('dashboard.blogs.index') }}" class="menu-link">
-                    <div data-i18n="Account">عرض المقالات</div>
-                  </a>
-                </li>
-                <li class="menu-item {{ request()->routeIs('dashboard.blogs.create') ? 'active' : '' }}">
-                  <a href="{{ request()->routeIs('dashboard.blogs.create') ? 'javascript:void(0)' : route('dashboard.blogs.create') }}" class="menu-link">
-                    <div data-i18n="Notifications">إضافة مقال</div>
-                  </a>
-                </li>
-              </ul>
             </li>
 
             <li class="menu-header small text-uppercase">
@@ -172,6 +149,36 @@
                 <li class="menu-item {{ request()->routeIs('dashboard.positions.create') ? 'active' : '' }}">
                   <a href="{{ request()->routeIs('dashboard.positions.create') ? 'javascript:void(0)' : route('dashboard.positions.create') }}" class="menu-link">
                     <div data-i18n="Basic">إضافة مركز</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">المركز الإعلامي</span>
+            </li>
+
+            <li class="menu-item {{ request()->routeIs('dashboard.pages.*') ? 'active' : '' }}">
+              <a href="{{ request()->routeIs('dashboard.pages.*') ? 'javascript:void(0)' : route('dashboard.pages.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-file-blank"></i>
+                <div data-i18n="Analytics">صفحات تعرف أكثر</div>
+              </a>
+            </li>
+
+            <li class="menu-item {{ request()->routeIs('dashboard.blogs.*') ? 'open' : '' }}">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxl-blogger"></i>
+                <div data-i18n="Account Settings">المقالات</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item {{ request()->routeIs('dashboard.blogs.index') ? 'active' : '' }}">
+                  <a href="{{ request()->routeIs('dashboard.blogs.index') ? 'javascript:void(0)' : route('dashboard.blogs.index') }}" class="menu-link">
+                    <div data-i18n="Account">عرض المقالات</div>
+                  </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('dashboard.blogs.create') ? 'active' : '' }}">
+                  <a href="{{ request()->routeIs('dashboard.blogs.create') ? 'javascript:void(0)' : route('dashboard.blogs.create') }}" class="menu-link">
+                    <div data-i18n="Notifications">إضافة مقال</div>
                   </a>
                 </li>
               </ul>
@@ -222,12 +229,18 @@
                       </a>
                     </li>
                     <li>
+                      <a class="dropdown-item" href="{{ route('dashboard.profile.index') }}">
+                        <i class="bx bxs-user me-2"></i>
+                        <span class="align-middle">إعدادات الحساب</span>
+                      </a>
+                    </li>
+                    <li>
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item" href="{{ route('dashboard.profile.logout') }}">
                         <i class="bx bx-power-off me-2"></i>
-                        <span class="align-middle">Log Out</span>
+                        <span class="align-middle">تسجيل الخروج</span>
                       </a>
                     </li>
                   </ul>

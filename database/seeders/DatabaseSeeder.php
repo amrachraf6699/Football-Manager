@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             'site_name' =>  'AAA',
             'address'   =>  'Giza , Egypt',
             'phone'     =>  '01063153994',
-            'email'     =>  'amrachraf66902gmail.com',
+            'email'     =>  'amrachraf6690@gmail.com',
             'facebook'  =>  'https://facebook.com/amrachraf6690',
             'twitter'   =>  'https://x.com/amrachraf6690',
             'instagram' =>  'https://instagram.com/amrachraf6690',

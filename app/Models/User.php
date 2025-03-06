@@ -49,14 +49,32 @@ class User extends Authenticatable
     }
 
     //Accerssor for image
-    public function getImageUrlAttribute($image)
+    public function getImageUrlAttribute()
     {
-        if ($image && Storage::exists('public/' . $image)) {
-            return asset('storage/' . $image);
+        if ($this->image && Storage::disk('public')->exists($this->image)) {
+            return Storage::url($this->image); // يُرجع رابط الصورة من التخزين
         }
-
+    
+        // صورة افتراضية من UI Avatars
         $name = urlencode($this->name);
         return "https://ui-avatars.com/api/?name={$name}&background=FFD700&color=fff&size=256";
+    }
+    
+
+    //Scopes
+    public function scopeParent($query)
+    {
+        return $query->where('role', 'parent');
+    }
+
+    public function scopeCoach($query)
+    {
+        return $query->where('role', 'coach');
+    }
+
+    public function scopeIsPlayer($query)
+    {
+        return $query->where('role', 'player');
     }
 
 
