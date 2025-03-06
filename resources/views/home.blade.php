@@ -11,7 +11,7 @@
     <div class="relative">
         <h1 class="text-6xl font-bold text-[#FFD700] drop-shadow-md animate-fade-in">🏆 طريقك للاحتراف يبدأ من هنا</h1>
         <p class="mt-4 text-2xl text-[#A8DADC]">نحن نقدم لك أفضل المدربين وأكثر البرامج الاحترافية</p>
-        <a href="#" class="mt-6 inline-block bg-[#FFD700] text-black py-3 px-6 rounded-full text-lg font-semibold shadow-md hover:bg-[#E6C300] transition">انضم إلينا الآن</a>
+        <a href="#" id="openModalH" class="mt-6 inline-block bg-[#FFD700] text-black py-3 px-6 rounded-full text-lg font-semibold shadow-md hover:bg-[#E6C300] transition">انضم إلينا الآن</a>
     </div>
 </section>
 

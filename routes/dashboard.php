@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\BlogsController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\PagesController;
 use App\Http\Controllers\Dashboard\PositionsController;
@@ -34,3 +35,6 @@ Route::resource('positions' , PositionsController::class)->middleware('role:coac
 
 //Pages Routes
 Route::resource('pages' , PagesController::class)->middleware('role:coach');
+
+//Blogs Routes
+Route::resource('blogs' , BlogsController::class)->middleware('role:coach');

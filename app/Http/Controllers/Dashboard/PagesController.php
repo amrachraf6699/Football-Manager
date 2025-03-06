@@ -19,7 +19,7 @@ class PagesController extends Controller
         ->when($request->search , fn($query , $search) => $query->where('title' , 'like' , "%$search%")->orWhere('content' , 'like' , "%$search%"))
         ->when($request->status , fn($query , $status) => $query->where('status' , $status))
         ->when($request->order , fn($query , $order) => $query->orderBy('title' , $order))
-        ->paginate(3);
+        ->paginate(10);
 
         return view('dashboard.pages.index' , compact('pages'));
     }
@@ -104,8 +104,8 @@ class PagesController extends Controller
      */
     public function destroy(string $id)
     {
-        $position = Page::findOrFail($id);
-        $position->delete();
+        $page = Page::findOrFail($id);
+        $page->delete();
 
         return redirect()->route('dashboard.pages.index')->with('success' , 'تم الحذف بنجاح');
     }

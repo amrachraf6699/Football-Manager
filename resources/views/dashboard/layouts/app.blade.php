@@ -107,7 +107,10 @@
                 </a>
             </li>
 
-            
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">المركز الإعلامي</span>
+            </li>
+
             <li class="menu-item {{ request()->routeIs('dashboard.pages.*') ? 'active' : '' }}">
               <a href="{{ request()->routeIs('dashboard.pages.*') ? 'javascript:void(0)' : route('dashboard.pages.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file-blank"></i>
@@ -115,6 +118,24 @@
               </a>
             </li>
 
+            <li class="menu-item {{ request()->routeIs('dashboard.blogs.*') ? 'open' : '' }}">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxl-blogger"></i>
+                <div data-i18n="Account Settings">المقالات</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item {{ request()->routeIs('dashboard.blogs.index') ? 'active' : '' }}">
+                  <a href="{{ request()->routeIs('dashboard.blogs.index') ? 'javascript:void(0)' : route('dashboard.blogs.index') }}" class="menu-link">
+                    <div data-i18n="Account">عرض المقالات</div>
+                  </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('dashboard.blogs.create') ? 'active' : '' }}">
+                  <a href="{{ request()->routeIs('dashboard.blogs.create') ? 'javascript:void(0)' : route('dashboard.blogs.create') }}" class="menu-link">
+                    <div data-i18n="Notifications">إضافة مقال</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
 
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">العناصر الرئيسية</span>

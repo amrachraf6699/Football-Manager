@@ -55,7 +55,6 @@ class User extends Authenticatable
             return asset('storage/' . $image);
         }
 
-        // إنشاء صورة افتراضية بناءً على اسم المستخدم
         $name = urlencode($this->name);
         return "https://ui-avatars.com/api/?name={$name}&background=FFD700&color=fff&size=256";
     }
@@ -73,6 +72,12 @@ class User extends Authenticatable
     public function children(): HasMany
     {
         return $this->hasMany(User::class, 'parent_id');
+    }
+
+    //Blogs Relationship
+    public function blogs(): HasMany
+    {
+        return $this->hasMany(Blog::class);
     }
 
     //====End of relationships====//
